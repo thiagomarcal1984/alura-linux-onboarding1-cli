@@ -248,3 +248,9 @@ thiago@thiago-pc:~$
 * `ll`: Comando do Ubuntu que é um alias para o comando `ls -la`: mostra todos os arquivos (inclusive ocultos), com descrição longa;
 * `touch <nomeDoArquivo>`: Cria um arquivo em branco;
 * `man <nome_do_comando>`: Exibe o manual do comando;
+
+# Hierarquia no filesystem - FHS
+
+FHS (Filesystem Hierarchy Standard - Padrão de Hierarquia de Sistema de Arquivos). O FHS se baseia no princípio de haver uma única raiz (/) para todos os diretórios/pastas do sistema de arquivos. É diferente do Windows, que usa unidades identificadas por letras.
+
+> O comando `cd` sem parâmetros muda para o diretório home do usuário.
