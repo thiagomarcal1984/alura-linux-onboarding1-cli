@@ -259,3 +259,7 @@ FHS (Filesystem Hierarchy Standard - Padrão de Hierarquia de Sistema de Arquivo
 * Use as `setas para cima ou para baixo` para ver os últimos comandos executados no bash;
 * Use a tecla `tab` para autocompletar os paths no bash;
 * O comando `cd -` (com o traço) muda para o último diretório acessado antes do diretório atual.
+
+# Criando diretórios com o MKDIR
+* `mkdir -p path/com/subdirs`: O parâmetro `-p` inclui os diretórios-pai/subpastas na medida do necessário.
+* O comando `touch` permite criar vários arquivos ao mesmo tempo: `touch arq1 arq2 arq3`.
