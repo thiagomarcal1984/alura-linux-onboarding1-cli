@@ -254,3 +254,8 @@ thiago@thiago-pc:~$
 FHS (Filesystem Hierarchy Standard - Padrão de Hierarquia de Sistema de Arquivos). O FHS se baseia no princípio de haver uma única raiz (/) para todos os diretórios/pastas do sistema de arquivos. É diferente do Windows, que usa unidades identificadas por letras.
 
 > O comando `cd` sem parâmetros muda para o diretório home do usuário.
+
+# Atalhos para navegação
+* Use as `setas para cima ou para baixo` para ver os últimos comandos executados no bash;
+* Use a tecla `tab` para autocompletar os paths no bash;
+* O comando `cd -` (com o traço) muda para o último diretório acessado antes do diretório atual.
