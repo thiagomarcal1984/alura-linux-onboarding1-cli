@@ -224,3 +224,27 @@ Pode ser que estejamos utilizando uma versão anterior do Windows, neste caso va
 3. Após a instalação, vamos abrir o programa e procurar as caixas de texto “Host name” e “Port” para configurarmos o acesso remoto. No campo “Host name” devemos inserir o IP do dispositivo que iremos acessar remotamente (computador, servidor ou máquina virtual), já no campo “Port” usamos a porta default do protocolo SSH (porta 22);
 4. Uma vez configurado as opções de acesso, vamos clicar na opção “Open” que exibirá em nossa tela uma solicitação do nome do usuário de acesso. Fornecemos então o nome de usuário de acesso ao servidor ou máquina virtual e, na sequência, nos será solicitada também a senha de acesso;
 5. Depois da verificação de acesso (usuário e senha), poderemos acessar o servidor ou máquina virtual de modo remoto via protocolo SSH.
+
+# Navegando no sistema PWD e LS
+Significado dos elementos do shell bash:
+```
+usuario@servidor:~$
+thiago@thiago-pc:~$
+```
+* `usuario`: Nome do usuário (ex.: thiago);
+* `@`: A arroba separa o usuário do servidor onde ele está logado;
+* `servidor`: Computador onde o usuário está logado (ex.: thiago-pc);
+* `:`: Separa o username@servidor do caminho acessado pelo usuário;
+* `~`: O til significa a pasta home do usuário. Pode ser substituído pelo diretório atual que o usuário acessa;
+* `$`: O cifrão significa que o usuário `não tem privilégios de administrador`. Se substituído pela cerquilha (`#`), significa que o usuário `tem privilégios de administrador`. Experimente usar o comando `sudo su` para logar como o usuário root.
+
+## Alguns comandos
+* `pwd`: Exibe o caminho atual (Print Working Directory). Ele diz onde estamos no servidor;
+* `ls`: Lista informações sobre arquivos ou diretórios (por padrão, lista informações do path atual). 
+  * O comando `ls -l` lista com descrição longa (long) os arquivos;
+  * O comando `ls -a` lista todos (all) os arquivos, inclusive os ocultos, diretório atual (.) e  diretório pai (..);
+  * O comando `ls -A` lista quase todos (Almost all) os arquivos, inclusive os ocultos. O diretório atual (.) e  diretório pai (..) não aparecem no resultado;
+  * O comando `ls -a` lista todos (all) os arquivos, inclusive os ocultos;
+* `ll`: Comando do Ubuntu que é um alias para o comando `ls -la`: mostra todos os arquivos (inclusive ocultos), com descrição longa;
+* `touch <nomeDoArquivo>`: Cria um arquivo em branco;
+* `man <nome_do_comando>`: Exibe o manual do comando;
