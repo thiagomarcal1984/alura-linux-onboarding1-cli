@@ -180,3 +180,47 @@ O WSL não é utilizado em ambientes de produção, onde temos que rodar uma apl
 Com todas essas limitações, o WSL não é uma ferramenta muito comum para pessoas de DevOps, já que sua utilização em servidores não é recomendada e devemos sempre rodar e testar códigos com o ambiente mais próximo do real, porém ele acaba sendo muito popular entre pessoas que desenvolvem softwares, já que o WSL consegue rodar a maioria dos comandos padrão do Linux e é mais rápido e leve que uma máquina virtual, como as do VirtualBox.
 
 Caso queira saber mais sobre o WSL, temos um artigo que passa por vários de seus aspectos: https://www.alura.com.br/artigos/wsl-executar-programas-comandos-linux-no-windows .
+
+# SSH no Windows
+Security Shell (SSH) é um protocolo de rede utilizado para oferecer acesso remoto seguro a um computador ou servidor. Para isso, o SSH estabelece uma comunicação criptografada entre um cliente e um servidor, garantindo que dados sensíveis, tais como informações pessoais e senhas, sejam protegidas contra espionagem virtual.
+
+Podemos usar o SSH em tarefas como acesso a arquivos armazenados em outros computadores, como: execução remota de programas e gerenciamento de servidores remotos. Logo, essa ferramenta é muito usada por administradores de sistemas, desenvolvedores e profissionais de segurança.
+
+Dessa forma, para estabelecermos uma conexão remota segura entre dois computadores, usamos o comando SSH. A sintaxe básica do comando é:
+```bash
+ssh [options] [user@]hostname [command]
+```
+
+Algumas opções [options] comuns são: 
+* -p port: usada para especificar o número da porta adotada para a conexão. Por default, o comando SSH utiliza a porta 22. 
+* -i identity_file: indica o arquivo de chave privada a ser usado na autenticação.
+* -l login_name: utilizada na especificação do nome de usuário a ser usado na conexão.
+
+Se quisermos acessar um servidor remoto, por exemplo, o comando é bem simples:
+
+```bash
+ssh username@remote_server_ip_address
+```
+
+Basta inserirmos o usuário de acesso ao servidor no campo `username` e o endereço de IP do servidor no campo `remote_server_ip_address`. Ao confirmarmos o comando apertando enter, deveremos digitar a senha de acesso do usuário indicado para estabelecermos a conexão ao servidor. Estabelecida a sessão de acesso, poderemos buscar arquivos e executar comandos no servidor. Podemos encerrar a conexão a qualquer momento digitando o comando `exit`.
+
+Apesar de ser um procedimento simples, podemos encontrar algumas dificuldades na execução do comando SSH em algumas versões do sistema operacional Windows. Infelizmente, em algumas versões o comando não está disponível, no entanto podemos contornar esse entrave seguindo alguns passos de acordo com a versão instalada em nosso computador.
+
+Caso estejamos utilizando o Windows 10, podemos seguir os passos abaixo:
+
+1. Vamos abrir as configurações do Windows;
+2. Acessar a aba Aplicativos;
+3. Procurar por Aplicativos e Recursos;
+4. Clicar na opção Recursos Opcionais;
+5. Identificar se o recurso OpenSSH está incluído na lista exibida. Caso não esteja, devemos clicar na opção Adicionar um Recurso;
+6. Vamos procurar a opção “Cliente SSH” e instalar o recurso em nosso computador.
+
+Após esses passos, o comando SSH estará prontamente disponível no terminal de comando do Windows. Caso não esteja, uma boa alternativa é usarmos a próxima estratégia (acesso SSH com programa PuTTY), indicada para versões anteriores do Windows.
+
+Pode ser que estejamos utilizando uma versão anterior do Windows, neste caso vamos instalar um programa chamado PuTTY para conseguir usar o protocolo SSH em nosso computador. Listamos uma breve sequência de passos para facilitar a utilização do PuTTY para acesso remoto:
+
+1. Vamos acessar o website oficial do [PuTTY] (https://www.putty.org) para fazermos o download do programa. Basta acessarmos a opção “Download PuTTY” e aguardar;
+2. Concluído o download do programa, vamos fazer sua instalação utilizando as configurações padrão;
+3. Após a instalação, vamos abrir o programa e procurar as caixas de texto “Host name” e “Port” para configurarmos o acesso remoto. No campo “Host name” devemos inserir o IP do dispositivo que iremos acessar remotamente (computador, servidor ou máquina virtual), já no campo “Port” usamos a porta default do protocolo SSH (porta 22);
+4. Uma vez configurado as opções de acesso, vamos clicar na opção “Open” que exibirá em nossa tela uma solicitação do nome do usuário de acesso. Fornecemos então o nome de usuário de acesso ao servidor ou máquina virtual e, na sequência, nos será solicitada também a senha de acesso;
+5. Depois da verificação de acesso (usuário e senha), poderemos acessar o servidor ou máquina virtual de modo remoto via protocolo SSH.
