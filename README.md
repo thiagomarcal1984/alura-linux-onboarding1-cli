@@ -161,3 +161,10 @@ Exemplo de comando para instalar o servidor SSH no Ubuntu:
 ```
 sudo apt install openssh-server
 ```
+# Utilizando uma estância na nuvem
+No curso, é mostrado um exemplo de acesso a uma máquina da AWS (^^à qual não temos acesso).
+
+Mas o destaque é para o parâmetro `-i` do comando `ssh`: ele recebe o caminho para o arquivo de identificação do usuário (identity_file).
+```
+ssh -i "path/para/arquivo.pem" usario@servidor.com
+```
