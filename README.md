@@ -16,3 +16,7 @@ Atualmente, as distribuições "raiz" são:
 * Android.
 
 No curso usaremos o Ubuntu.
+
+# VirtualBox
+Download do VirtualBox: https://www.virtualbox.org/wiki/Downloads
+Download do Ubuntu: https://ubuntu.com/download#download
