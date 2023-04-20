@@ -121,3 +121,21 @@ See "man sudo_root" for details.
 
 thiago@thiago-pc:~$
 ```
+
+# Conhecendo o WSL
+O WSL (Windows Subsystem for Linux) é uma alternativa ao VirtualBox, mas ela tem mais limitações do que VM do VirtualBox. É um jeito de usar Linux no Windows.
+
+Consulte a documentação para instalar o WSL: https://learn.microsoft.com/pt-br/windows/wsl/install
+
+Para instalar o WSL, execute o comando abaixo como administrador, confirme os passos e reinicie o host:
+
+```
+wsl --install
+```
+
+Depois de reiniciar, você pode acessar o WSL usando o comando:
+
+```
+wsl
+```
+O prompt vai ser exibido com o path atual no formato do Linux.
