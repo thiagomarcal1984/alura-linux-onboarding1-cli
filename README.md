@@ -40,3 +40,24 @@ Nas configurações da máquina convidada (VM) modifique o primeiro adaptador de
 1. Ligue a opção `Habilitar Placa de Rede`;
 2. Escolha a opção `Placa em modo Bridge` (a opção anterior seria NAT);
 3. O campo `Nome` indica a placa de rede que será usada. Geralmente a placa de rede deve iniciar com `Intel` ou `Realtek`. Dê preferência para as placas de rede físicas: não escolha placas de rede virtuais.
+
+# Instalando o Linux
+Passos para o Ubuntu:
+1. Inicie a máquina convidada (VM);
+2. Escolha o idioma (Português);
+3. Escolha o layout de teclado para Portuguese Brazil;
+4. Escolha como base de instalação o Ubuntu Server sem ser o minimizado. Não marque a opção de busca de drivers de terceiros;
+5. Anote o número IP informado e associado à placa de rede do host (no caso, o número é 192.168.18.254/24);
+6. Ignore a configuração do proxy;
+7. Ignore a configuração dos mirrors;
+8. Use o HD inteiro para a instalação do OS;
+9. Leia o sumário e continue a instalação;
+10. Defina o seu perfil:
+    1. Nome: Thiago
+    2. Nome do seu servidor (a-z,0-9,- ou _): thiago-pc
+    3. Nome de usuário (a-z,0-9,- ou _): thiago
+    4. Senha e confirmação de senha: thiago
+11. Pule o "Upgrade to Ubuntu Pro";
+12. Marque a opção "Install OpenSSH Server" apertando Enter, e depois confirme;
+13. Pule as instalações das Featured Server Snaps (docker, postgre, powershell etc.);
+14. Dê reboot na máquina convidada após o término da instalação.
