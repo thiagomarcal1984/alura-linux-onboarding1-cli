@@ -19,6 +19,7 @@ No curso usaremos o Ubuntu.
 
 # VirtualBox
 Download do VirtualBox: https://www.virtualbox.org/wiki/Downloads
+
 Download do Ubuntu: https://ubuntu.com/download#download
 
 # Criando uma máquina virtual
@@ -33,3 +34,9 @@ Configurações do hardware da nova VM:
 
 ## Disco Rígido Virtual
 * A opção padrão é 25GB. Vamos usar essa mesmo.
+
+# Configurando redes na máquina virtual
+Nas configurações da máquina convidada (VM) modifique o primeiro adaptador de rede:
+1. Ligue a opção `Habilitar Placa de Rede`;
+2. Escolha a opção `Placa em modo Bridge` (a opção anterior seria NAT);
+3. O campo `Nome` indica a placa de rede que será usada. Geralmente a placa de rede deve iniciar com `Intel` ou `Realtek`. Dê preferência para as placas de rede físicas: não escolha placas de rede virtuais.
