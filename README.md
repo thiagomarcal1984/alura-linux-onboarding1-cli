@@ -139,3 +139,25 @@ Depois de reiniciar, você pode acessar o WSL usando o comando:
 wsl
 ```
 O prompt vai ser exibido com o path atual no formato do Linux.
+
+# Acessando o Linux remotamente
+
+Para acessar um computador via SSH, use o comando no prompt do Windows: `ssh usuario@servidor`:
+
+```
+C:\Users\Thiago>ssh thiago@192.168.18.254
+```
+Depois de acessar a máquina convidada, atualize o gerenciador de pacotes apt:
+
+```
+sudo apt update
+```
+O `APT (Advanced Package Tool)` é a ferramenta de gerenciamento de pacotes do Debian.
+
+O comando `sudo` significa `subsitute user do`, ou seja, executa algum comando como outro usuário (por padrão, o usuário root). Sem o sudo, a atualização do APT não é autorizada.
+
+Exemplo de comando para instalar o servidor SSH no Ubuntu:
+
+```
+sudo apt install openssh-server
+```
