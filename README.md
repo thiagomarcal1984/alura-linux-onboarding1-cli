@@ -263,3 +263,30 @@ FHS (Filesystem Hierarchy Standard - Padrão de Hierarquia de Sistema de Arquivo
 # Criando diretórios com o MKDIR
 * `mkdir -p path/com/subdirs`: O parâmetro `-p` inclui os diretórios-pai/subpastas na medida do necessário.
 * O comando `touch` permite criar vários arquivos ao mesmo tempo: `touch arq1 arq2 arq3`.
+
+# Removendo diretórios e arquivos - RMDIR E RM
+* `rmdir` remove diretórios ***não vazios***. Comando pouco usado.
+* O comando `rm` remove arquivos e diretórios. É possível apagar mais de um arquivo/diretório por vez: `rm arq1 arq2`.
+* O comando `rm -rf` apaga recursivamente e forçadamente arquivos e diretórios e o seu conteúdo.
+  * O comando `rm -r` (com o parâmetro `-r` de recursivo) apaga um diretório e o seu conteúdo, se houver.
+  * O comando `rm -f` (com o parâmetro `-f` de forçado) força a exclusão.
+
+> O comando `mkdir` admite criar vários diretórios de uma vez: `mkdir dir1 dir2 dir3` cria 3 diretórios.
+> Para criar diretórios com espaços, há duas formas:
+> 1. Escape o espaço com uma contrabarra: 
+>```
+>thiago@thiago-pc:~/labs/arqs_dirs$ mkdir diretorio\ 1 diretorio\ 2
+>thiago@thiago-pc:~/labs/arqs_dirs$ ls
+>'diretorio 1'  'diretorio 2'
+>```
+> 2. Envolva os nomes de diretório com aspas (simples ou duplas): 
+>```
+>thiago@thiago-pc:~/labs/arqs_dirs$ mkdir 'diretorio 3' 'diretorio 4'
+>thiago@thiago-pc:~/labs/arqs_dirs$ ls
+>'diretorio 1'  'diretorio 2'  'diretorio 3'  'diretorio 4'
+>
+>thiago@thiago-pc:~/labs/arqs_dirs$ mkdir "diretorio 5" "diretorio 6"
+>thiago@thiago-pc:~/labs/arqs_dirs$ ls
+>'diretorio 1'  'diretorio 3'  'diretorio 5'
+>'diretorio 2'  'diretorio 4'  'diretorio 6'
+>```
