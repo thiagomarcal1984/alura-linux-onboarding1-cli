@@ -290,3 +290,79 @@ FHS (Filesystem Hierarchy Standard - Padrão de Hierarquia de Sistema de Arquivo
 >'diretorio 1'  'diretorio 3'  'diretorio 5'
 >'diretorio 2'  'diretorio 4'  'diretorio 6'
 >```
+
+# Copiando arquivos com o CP
+Criando e acessando a pasta `copy_move`:
+```
+thiago@thiago-pc:~/labs$ mkdir copy_move
+thiago@thiago-pc:~/labs$ cd copy_move
+thiago@thiago-pc:~/labs/copy_move$
+```
+Criando os diretórios `dir1` e` dir2`:
+```
+thiago@thiago-pc:~/labs/copy_move$ mkdir dir1 dir2
+thiago@thiago-pc:~/labs/copy_move$ ls
+dir1  dir2
+```
+
+Criando conteúdo em `dir1`:
+```
+thiago@thiago-pc:~/labs/copy_move$ cd dir1
+thiago@thiago-pc:~/labs/copy_move/dir1$ touch arq1 arq2 arq3
+thiago@thiago-pc:~/labs/copy_move/dir1$ ls
+arq1  arq2  arq3
+thiago@thiago-pc:~/labs/copy_move/dir1$ mkdir -p sub1/sub2
+thiago@thiago-pc:~/labs/copy_move/dir1$ ls
+arq1  arq2  arq3  sub1
+```
+
+Acessando e listando a pasta `copy_move`:
+```
+thiago@thiago-pc:~/labs/copy_move/dir1$ cd ..
+thiago@thiago-pc:~/labs/copy_move$ ls
+dir1  dir2
+```
+
+Tentativa falha de copiar o diretório `dir1` para `dir2`:
+```
+thiago@thiago-pc:~/labs/copy_move$ cp dir1 dir2
+cp: -r not specified; omitting directory 'dir1'
+```
+> Faltou acrescentar o parâmetro `-r` para copiar recursivamente a pasta `dir1` para `dir2`.
+
+Tentativa correta de copiar o diretório `dir1` para `dir2`:
+```
+thiago@thiago-pc:~/labs/copy_move$ cp -r dir1 dir2
+```
+
+Acessando e listando a pasta `dir2`:
+```
+thiago@thiago-pc:~/labs/copy_move$ cd dir2
+thiago@thiago-pc:~/labs/copy_move/dir2$ ls
+dir1
+thiago@thiago-pc:~/labs/copy_move/dir2$ rm -rf dir1/
+```
+> Perceba que o conteúdo de `dir2` não é exatamente o mesmo de `dir1`.
+
+Copiando o arquivo `recursivamente` o `conteúdo` de `dir1` para `dir2`:
+```
+thiago@thiago-pc:~/labs/copy_move/dir2$ cd ..
+thiago@thiago-pc:~/labs/copy_move$ cp -r dir1/* dir2
+```
+
+Listando o conteúdo dos dois diretórios (agora estão idênticos):
+```
+thiago@thiago-pc:~/labs/copy_move$ ls dir2
+arq1  arq2  arq3  sub1
+thiago@thiago-pc:~/labs/copy_move$ ls dir1
+arq1  arq2  arq3  sub1
+```
+
+> Alternativas para copiar o conteúdo:
+> ```
+> thiago@thiago-pc:~/labs/copy_move/dir1$ cp -r * ../dir2
+> thiago@thiago-pc:~/labs/copy_move/dir1$ ls ../dir2
+> arq1  arq2  arq3  sub1
+> thiago@thiago-pc:~/labs/copy_move/dir1$ ls .
+> arq1  arq2  arq3  sub1
+> ```
