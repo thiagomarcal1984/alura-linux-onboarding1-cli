@@ -61,3 +61,63 @@ Passos para o Ubuntu:
 12. Marque a opção "Install OpenSSH Server" apertando Enter, e depois confirme;
 13. Pule as instalações das Featured Server Snaps (docker, postgre, powershell etc.);
 14. Dê reboot na máquina convidada após o término da instalação.
+
+# Acesso via SSH
+No terminal do Linux, use o comando abaixo (note o espaço) para identificar o endereço IP da máquina convidada (VM):
+```
+ip addr
+```
+Procure na saída o texto `inet`: ele vai indicar o endereço IP.
+
+Para acessar a máquina convidada via SSH, use o comando no prompt do Windows: `ssh usuario@servidor`:
+
+```
+C:\Users\Thiago>ssh thiago@192.168.18.254
+```
+
+O cliente SSH diz que a autenticidade do servidor acessado não pode ser estabelecida. Nesse caso temos 3 opções:
+1. Continuar a conexão (yes);
+2. Não continuar a conexão (no);
+3. Informar a fingerprint para confirmar autenticidade ([fingerprint]).
+```
+The authenticity of host '192.168.18.254 (192.168.18.254)' can't be established.
+ECDSA key fingerprint is SHA256:my7KuvY0YPb3Kl2twlQJsWAL3xZL8bafk2afg9gYI2g.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '192.168.18.254' (ECDSA) to the list of known hosts.
+```
+Depois que você continuar a conexão, informe a senha do usuário:
+```
+thiago@192.168.18.254's password:
+Welcome to Ubuntu 22.04.2 LTS (GNU/Linux 5.15.0-70-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of qui 20 abr 2023 16:43:47 UTC
+
+  System load:             0.046875
+  Usage of /:              42.7% of 11.21GB
+  Memory usage:            11%
+  Swap usage:              0%
+  Processes:               115
+  Users logged in:         1
+  IPv4 address for enp0s3: 192.168.18.254
+  IPv6 address for enp0s3: 2804:2488:5084:2270:a00:27ff:fefe:8ba7
+
+
+Manutenção de Segurança Expandida para Applications não está ativa.
+
+40 as atualizações podem ser aplicadas imediatamente.
+Para ver as actualizações adicionais corre o comando: apt list --upgradable
+
+Ativar ESM Apps para poder receber possiveis futuras atualizações de segurança.
+Consulte https://ubuntu.com/esm ou execute: sudo pro status
+
+
+Last login: Thu Apr 20 16:37:42 2023
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+thiago@thiago-pc:~$
+```
