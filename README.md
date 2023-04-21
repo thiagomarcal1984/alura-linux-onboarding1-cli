@@ -455,3 +455,68 @@ thiago@thiago-pc:~/labs/copy_move$ history
    51  history
 thiago@thiago-pc:~/labs/copy_move$
 ```
+
+# Globbing #1
+File globbing é uma forma de casar padrões (pattern matching). Não confundir com expressões regulares, cuja sintaxe é um pouco diferente.
+
+Curingas de globbing:
+| Função | Exemplo | Resultados |
+| --- |--- | --- |
+| (?) Casar com um único caractere desconhecido | ?anto | santo, tanto, canto |
+| (*) Casar com um ou mais caracteres desconhecidos | Auto* | Automóvel, Autonomia |
+| ([]) Casar um caracter com um grupo de caracteres | [ST]anto | Santo, Manto (Canto e Janto não casariam) |
+| ([!]) Não casar um caracter com um grupo de caracteres | [!ST]anto | Canto, Janto (Santo e Manto não casariam) |
+
+Estrutura da pasta em que as operações serão realizadas:
+```
+thiago@thiago-pc:~/labs$ mkdir glob
+thiago@thiago-pc:~/labs$ cd glob/
+thiago@thiago-pc:~/labs/glob$ touch arq1 arq2 arq3
+thiago@thiago-pc:~/labs/glob$ touch arq10 arq100
+thiago@thiago-pc:~/labs/glob$ touch tmp1 tmp2
+thiago@thiago-pc:~/labs/glob$ ls
+arq1  arq10  arq100  arq2  arq3  tmp1  tmp2
+```
+
+A curinga `*` serve para prefixar/sufixar qualquer string de qualquer tamanho (inclusive string vazia). Note que o arquivo `arq` também é incluído no resultado do comando `ls arq*`:
+```
+thiago@thiago-pc:~/labs/glob$ touch arq
+thiago@thiago-pc:~/labs/glob$ ls arq*
+arq  arq1  arq10  arq100  arq2  arq3
+```
+
+A curinga `?` serve para substituir qualquer caractere uma única vez. Note que o comando `ls arq1?` a seguir não retorna os arquivos `arq1` e `arq100`:
+```
+thiago@thiago-pc:~/labs/glob$ ls arq1
+arq1
+thiago@thiago-pc:~/labs/glob$ ls arq1*
+arq1  arq10  arq100
+thiago@thiago-pc:~/labs/glob$ ls arq1?
+arq10
+```
+Outro exemplo do uso de interrogação (`?`):
+```
+thiago@thiago-pc:~/labs/glob$ touch arq90 arq78
+thiago@thiago-pc:~/labs/glob$ ls
+arq  arq1  arq10  arq100  arq2  arq3  arq78  arq90  tmp1  tmp2
+thiago@thiago-pc:~/labs/glob$ ls arq??
+arq10  arq78  arq90
+```
+
+Pattern matching com grupo de caracteres em colchetes:
+```
+thiago@thiago-pc:~/labs/glob$ ls arq[0-9][0-9]
+arq10  arq78  arq90
+thiago@thiago-pc:~/labs/glob$ ls arq[0-9]
+arq1  arq2  arq3
+```
+
+Pattern matching negando grupo de caracteres em colchetes (repare na exclamação `[!0-9]` e `[!a-z]`):
+```
+thiago@thiago-pc:~/labs/glob$ touch arqe
+thiago@thiago-pc:~/labs/glob$ ls arq[!0-9]
+arqe
+
+thiago@thiago-pc:~/labs/glob$ ls arq[!a-z]
+arq1  arq2  arq3
+```
