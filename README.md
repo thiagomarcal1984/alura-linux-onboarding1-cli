@@ -520,3 +520,28 @@ arqe
 thiago@thiago-pc:~/labs/glob$ ls arq[!a-z]
 arq1  arq2  arq3
 ```
+
+# Globbing #2
+Exemplo de busca (grupos com ranges):
+```
+thiago@thiago-pc:~/labs/glob$ touch arq5 arq9
+thiago@thiago-pc:~/labs/glob$ ls
+arq  arq1  arq10  arq100  arq2  arq3  arq5  arq78  arq9  arq90  tmp1  tmp2
+thiago@thiago-pc:~/labs/glob$ ls ???[0-5]
+arq1  arq2  arq3  arq5  tmp1  tmp2
+```
+
+Exemplo de busca (grupos sem ranges):
+```
+thiago@thiago-pc:~/labs/glob$ ls ???[15]
+arq1  arq5  tmp1
+```
+
+Busca "case insensitive", usando grupos com range:
+```
+thiago@thiago-pc:~/labs/glob$ touch Arq1 Arq2
+thiago@thiago-pc:~/labs/glob$ ls arq[1-5]
+arq1  arq2  arq3  arq5
+thiago@thiago-pc:~/labs/glob$ ls [Aa]rq[1-5]
+arq1  Arq1  arq2  Arq2  arq3  arq5
+```
