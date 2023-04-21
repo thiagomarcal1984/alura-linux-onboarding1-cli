@@ -366,3 +366,92 @@ arq1  arq2  arq3  sub1
 > thiago@thiago-pc:~/labs/copy_move/dir1$ ls .
 > arq1  arq2  arq3  sub1
 > ```
+
+# Movendo e renomeando com o Mv
+Extra: o comando `cp -r` abaixo copia a pasta `dir1` para `dir3` de forma idêntica porque o `dir3` não existia!
+```
+thiago@thiago-pc:~/labs/copy_move$ ls
+dir1  dir2
+thiago@thiago-pc:~/labs/copy_move$ cp -r dir1 dir3
+thiago@thiago-pc:~/labs/copy_move$ ls dir3/
+arq1  arq2  arq3  sub1
+thiago@thiago-pc:~/labs/copy_move$ ls dir1/
+arq1  arq2  arq3  sub1
+```
+O comando `mv` move um arquivo/diretório OU modifica seu nome. Note que na sequência de comandos abaixo, `dir1` não é movido para `dir4` (que não existia). `dir1` na verdade é renomeado para `dir4`:
+```
+thiago@thiago-pc:~/labs/copy_move$ ls
+dir1  dir2  dir3
+thiago@thiago-pc:~/labs/copy_move$ mv dir1 dir4
+thiago@thiago-pc:~/labs/copy_move$ ls
+dir2  dir3  dir4
+thiago@thiago-pc:~/labs/copy_move$ ls dir4/
+arq1  arq2  arq3  sub1
+```
+
+Criando o diretório `dir4`, movendo o conteúdo de `dir1` para `dir4` e exibindo o conteúdo de cada diretório:
+```
+thiago@thiago-pc:~/labs/copy_move$ mkdir dir4
+thiago@thiago-pc:~/labs/copy_move$ mv dir1/* dir4
+thiago@thiago-pc:~/labs/copy_move$ ls dir1
+thiago@thiago-pc:~/labs/copy_move$ ls dir4
+arq1  arq2  arq3  sub1
+```
+
+## History
+O comando `history` exibe os últimos comandos executados!
+```
+thiago@thiago-pc:~/labs/copy_move$ history
+    1  pwd
+    2  ip addr
+    3  shutdown
+    4  shutdown --help
+    5  shutdown -P
+    6  shutdown -h
+    7  sudo apt update
+    8  sudo --help
+    9  apt update
+   10  sudo apt install openssh-server
+   11  su
+   12  sudo thiago
+   13  sudo su
+   14  pwd
+   15  ls
+   16  cd ..
+   17  ls
+   18  cd ..
+   19  cd etc/
+   20  cd network
+   21  ls
+   22  cd ~
+   23  sudo su
+   24  cd labs/
+   25  ls
+   26  cd copy_move/dir2
+   27  ls
+   28  cd ..
+   29  cd -
+   30  ls
+   31  copy -r dir1 dir3
+   32  ls
+   33  cp -r dir1 dir3
+   34  ls dir3/
+   35  ls dir1/
+   36  ls
+   37  mv dir1 dir4
+   38  ls
+   39  ls dir4/
+   40  mv dir4/ dir1
+   41  ls
+   42  mkdir dir4
+   43  mv -r dir1 dir4
+   44  rmdir dir4
+   45  mkdir dir4
+   46  mv dir1/* dir4
+   47  ls dir1
+   48  ls dir4
+   49  mv dir4/* dir1
+   50  rmdir dir4
+   51  history
+thiago@thiago-pc:~/labs/copy_move$
+```
